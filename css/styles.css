@@ -1,0 +1,1041 @@
+:root {
+    --rojo: rgb(255, 0, 0);
+    --naranja: rgb(255, 123, 0);
+    --amarillo: rgb(255, 193, 0);
+    --blanco: rgb(255, 255, 255);
+    --negro: rgb(0, 0, 0);
+    --azul: rgb(14, 14, 143);
+    --color-form: rgba(73, 69, 69, 0.404);
+
+    --fuente: "Open Sans", sans-serif, "Arial";
+    --fuente-sayan: "Saiyan-Sans";
+    --fuente-contenido: "Anton", sans-serif;
+    --fuente-Roboto: "Roboto", serif;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    margin: 0;
+}
+
+body {
+    font-size: 16px;
+    line-height: 1.5;
+    z-index: 0;
+    background-color: #dce8ff;
+}
+
+@font-face {
+    font-family: "Saiyan-Sans";
+    src: url(../fuentes/Saiyan-Sans.ttf);
+    font-weight: bold;
+    font-style: bold;
+}
+
+.title {
+    text-align: center;
+    font-weight: 100;
+    font-size: 55px;
+    letter-spacing: 2px;
+    margin: 3rem 0;
+}
+
+/* HEADER */
+
+/* .presentacion {
+    height: 99vh;
+    background: url(../img/dragon-ball-shenron-majestic-dragon-desktop-wallpaper.jpg)
+        center;
+    background-size: cover;
+} */
+
+/* NAV STICKY */
+/* .nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--azul);
+    z-index: 1000;
+} */
+
+/* NAV FIXED */
+.nav {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 255, 0.4);
+    z-index: 1000;
+}
+
+.logo {
+    height: 60px;
+    width: 120px;
+    margin-left: 70px;
+}
+
+.enlaces {
+    font-family: "Saiyan-Sans";
+    font-size: 35px;
+    margin-right: 70px;
+    text-shadow: 2px 2px 5px black;
+}
+.enlace {
+    color: var(--amarillo);
+    text-decoration: none;
+    position: relative;
+    transition: all 0.5s;
+}
+.enlace::before {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: var(--amarillo);
+    position: absolute;
+    bottom: -5px;
+    transition: all 0.5s ease;
+}
+.enlace:hover::before {
+    width: 50%;
+}
+.enlace:hover {
+    color: var(--rojo);
+}
+
+/* Section Pro */
+.section-pro {
+    width: 100%;
+    /* height: calc(100vh - 70px); Esto con el Sticky */
+    height: 100vh;
+    position: relative;
+    background: url(../img/dragon-ball-personajes-1.jpg) center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.section-pro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(38, 80, 245, 0.3);
+}
+
+.div-pro {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 40%;
+}
+
+.div-pro h1 {
+    font-family: var(--fuente);
+    color: #f4eeee;
+    font-size: 50px;
+    letter-spacing: 1px;
+    margin: 30px 0;
+    text-shadow: 5px 5px 8px #000;
+}
+.div-pro a {
+    text-decoration: none;
+    font-size: 3rem;
+}
+.btn {
+    background-color: var(--rojo);
+    font-family: var(--fuente-sayan);
+    color: rgb(249, 249, 19);
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+.btn-pro {
+    padding: 1rem 2rem;
+}
+.btn:hover {
+    transform: scale(1.1);
+    background-color: rgb(181, 3, 3);
+}
+.btn-compra {
+    background-color: rgb(0, 150, 0);
+}
+.btn-compra:hover {
+    background-color: rgb(1, 105, 1);
+}
+.modal.fade.show {
+    background-color: rgba(26, 56, 113, 0.53);
+}
+.segundo-modal {
+    background: url(../img/kame-house.jpg) center center;
+}
+.modal-kame {
+    background-color: rgba(255, 166, 1, 0.76);
+}
+
+.modal-title {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+}
+
+div.form-floating.com {
+    margin: 1rem 1.1rem;
+    top: -1.5rem;
+}
+
+/* Main */
+.main-productos {
+    padding: 3rem 10rem;
+}
+
+.card-index {
+    position: relative;
+    width: 33%;
+    height: 420px;
+    background: var(--naranja);
+    overflow: hidden;
+    float: left;
+    border: none;
+    margin: 1px;
+}
+
+.card-index::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(14, 14, 143);
+    transform: skewY(345deg);
+    transition: all 0.5s;
+}
+.card-index:hover::before {
+    top: -70%;
+    transform: skewY(390deg);
+}
+.card-index::after {
+    content: "DBS";
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    font-weight: 700;
+    font-size: 8em;
+    color: rgba(0, 0, 0, 0.1);
+}
+
+.card-index .img-card {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+.card-index .img-card img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 70%;
+    transition: all 0.5s;
+}
+
+.card-index:hover .img-card img {
+    max-width: 60%;
+}
+
+.content-card {
+    width: 100%;
+    position: absolute;
+    bottom: 1%;
+    text-align: center;
+    z-index: 1;
+}
+
+.content-card h3 {
+    font-family: var(--fuente-contenido);
+    font-size: 2vw;
+    color: var(--azul);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 5px 5px 10px var(--amarillo);
+}
+
+.content-card .precio {
+    font-family: var(--fuente-contenido);
+    font-size: 25px;
+    color: var(--azul);
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 5px 5px 10px var(--amarillo);
+}
+.content-card .buy {
+    position: relative;
+    text-decoration: none;
+    top: 200px;
+    opacity: 0;
+    padding: 10px 30px;
+    /* margin-top: 15px; */
+}
+.card-index:hover .content-card .buy {
+    top: 1px;
+    opacity: 1;
+}
+
+a.btn .buy {
+    transform: scale(1.1) !important;
+    background-color: rgb(181, 3, 3);
+}
+
+/* MENSAJE */
+.mensaje {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 450px;
+    background: url(../img/dragon-ball-shenron.jpg) center;
+    background-attachment: fixed;
+    background-size: cover;
+    margin-top: 5rem;
+}
+.mensaje::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+.mensaje p {
+    font-family: var(--fuente);
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--blanco);
+    font-size: 6rem;
+    font-weight: 400;
+    text-shadow: 5px 0 10px rgb(0, 0, 0);
+}
+
+/* FAVORITO */
+
+.favorito {
+    padding: 20px 150px;
+    height: 110vh;
+    position: relative;
+    margin-bottom: 5rem;
+}
+
+.favorito::before {
+    content: "Figura De Acción";
+    position: absolute;
+    bottom: -1%;
+    left: 0;
+    font-weight: 700;
+    font-size: 10vw;
+    color: rgba(0, 0, 0, 0.1);
+    z-index: 0;
+}
+.favorito::after {
+    content: "DBS";
+    position: absolute;
+    top: 2%;
+    right: 0;
+    font-weight: 700;
+    font-size: 10vw;
+    color: rgba(0, 0, 0, 0.05);
+    z-index: -1;
+}
+
+.conteiner-favorito > div {
+    float: left;
+    margin: 30px;
+}
+
+.content-fav {
+    width: 40%;
+    height: 100%;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.imagen-fav {
+    width: 40%;
+    position: relative;
+}
+
+.imagen-fav::before {
+    content: "Última Unidad";
+    text-transform: uppercase;
+    font-family: var(--fuente);
+    font-size: 15px;
+    font-weight: 700;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: rgb(250, 149, 26);
+    width: 80px;
+    height: 80px;
+    padding: 25px 10px;
+    line-height: 1;
+    text-align: center;
+    border-radius: 50%;
+    color: rgb(50, 50, 241);
+    transform: rotate(-20deg);
+    text-shadow: 1px 1px 1px rgb(29, 29, 212);
+    box-shadow: 0 0 10px 10px rgb(237, 184, 71);
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+
+.imagen-fav:hover::before {
+    transform: scale(1.3) rotate(-20deg);
+}
+
+.conteiner-favorito:hover .imagen-fav img {
+    transform: scale(1.3);
+}
+
+.imagen-fav img {
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+}
+.content-fav h1 {
+    font-size: 40px;
+    font-weight: 700;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+.content-fav h3 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--azul);
+}
+
+.content-fav .text p {
+    text-align: justify;
+    margin: 20px 0;
+}
+
+.content-inferior {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.content-inferior .precio {
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 700;
+    color: var(--negro);
+}
+
+.content-inferior .buy {
+    width: 150px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+.content-inferior .btn:hover {
+    transform: scale(1.1);
+    background-color: rgb(181, 3, 3);
+}
+
+/* Reseñas */
+.reseñas {
+    margin: 2rem;
+}
+
+.caja-contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+}
+
+.reseñas .caja-contenedor .caja {
+    margin: 2rem;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+}
+
+.reseñas .caja-contenedor .caja:hover {
+    transform: scale(1.05);
+    transition: all 0.5s ease;
+}
+
+.reseñas .caja-contenedor .caja .user img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+    margin-top: 32px;
+}
+.reseñas .caja-contenedor .caja .user h3 {
+    color: var(--azul);
+    font-size: 32px;
+}
+.reseñas .caja-contenedor .caja .user .starts img {
+    height: 30px;
+    width: 30px;
+}
+
+.reseñas .caja-contenedor .caja .comentarios {
+    color: #666;
+    font-size: 24px;
+    padding: 24px;
+}
+
+.abrir-menu,
+.cerrar-menu {
+    display: none;
+}
+
+/* FORMULARIO */
+.contenedor-form {
+    font-family: var(--fuente-Roboto);
+    background: radial-gradient(
+            circle,
+            rgba(118, 120, 236, 1) 0%,
+            rgba(255, 188, 0, 1) 100%
+        ),
+        url(../img/dragon.png);
+    background-blend-mode: multiply;
+    width: 100%;
+    height: 580px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form h1 {
+    text-align: center;
+    font-weight: 700;
+}
+.form {
+    background: var(--blanco);
+    padding: 4rem 0;
+    box-shadow: 0 0 5px 0 rgba(195, 216, 255, 0.8);
+    border-radius: 10px;
+}
+.form .grupo {
+    position: relative;
+    margin: 15px;
+}
+input,
+textarea {
+    background: none;
+    color: rgb(176, 176, 176);
+    font-size: 18px;
+    padding: 8px 8px 8px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--color-form);
+}
+textarea {
+    padding: 20px 10px;
+}
+textarea:focus,
+input:focus {
+    outline: none;
+    color: rgb(62, 62, 62);
+}
+label {
+    color: var(--color-form);
+    font-size: 16px;
+    position: absolute;
+
+    left: 5px;
+    top: 10px;
+    transition: all 0.5s ease-in-out;
+    pointer-events: none;
+}
+textarea:focus ~ label,
+input:focus ~ label,
+input:valid ~ label {
+    top: -14px;
+    font-size: 12px;
+    color: #2196f3;
+}
+textarea:focus ~ label {
+    top: -3px;
+}
+
+.barra {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.barra::before {
+    content: "";
+    height: 2px;
+    width: 0%;
+    bottom: 0;
+    position: absolute;
+    background: radial-gradient(
+        circle,
+        rgba(118, 120, 236, 1) 0%,
+        rgba(255, 188, 0, 1) 100%
+    );
+    transition: all 0.3s ease;
+    left: 0;
+}
+
+textarea:focus ~ .barra::before,
+input:focus ~ .barra::before {
+    width: 100%;
+}
+
+.boton-form {
+    font-family: var(--fuente-Roboto);
+    background: linear-gradient(
+        90deg,
+        rgba(40, 63, 208, 1) 0%,
+        rgba(252, 142, 69, 1) 100%
+    );
+    border: none;
+    display: block;
+    width: 80%;
+    margin: 30px auto 0 auto;
+    color: var(--blanco);
+    height: 4rem;
+    font-size: 18px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* FOOTER */
+.footer {
+    position: relative;
+    width: 100%;
+    background: rgb(4, 0, 19);
+    min-height: 100px;
+    padding: 2rem 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 10px 5px;
+    flex-wrap: wrap;
+}
+.icon-elem {
+    list-style: none;
+}
+.icon {
+    color: var(--blanco);
+    font-size: 32px;
+    display: inline-block;
+    margin: 0 10px;
+    transition: 0.5s;
+}
+.icon:hover {
+    transform: translateY(-10px);
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+.menu-elem {
+    list-style: none;
+}
+.menu-icon {
+    color: var(--blanco);
+    font-size: 20px;
+    display: inline-block;
+    text-decoration: none;
+    margin: 5px 10px;
+    opacity: 0.75;
+    transition: 0.3s;
+}
+.menu-icon:hover {
+    opacity: 1;
+}
+
+.texto-footer {
+    color: var(--blanco);
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+/* --------------------------------- */
+/* PRODUCTOS BOOSTRAP */
+.navbar-expand-lg .navbar-collapse {
+    justify-content: center;
+    padding: 2rem;
+    padding-bottom: 3rem;
+}
+
+.form-control {
+    padding: 1rem 5rem;
+    font-size: 2rem;
+}
+
+.nav-link-p {
+    position: relative;
+}
+.carrito-svg {
+    transform: scaleX(-1);
+    width: 45px;
+}
+.goku-carrito {
+    position: absolute;
+    width: 56px;
+    height: 13.5vh;
+    top: -34px;
+    right: 42px;
+}
+
+/* Animacion Goku Carrito */
+
+.frames-goku {
+    width: 145px;
+    height: 132px;
+    top: -72px;
+    right: -4px;
+    background: url(../img/sprite-sheet-goku-1.png) no-repeat;
+    background-size: cover;
+    animation: reaccion 1s steps(5);
+}
+
+@keyframes reaccion {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -725px;
+    }
+}
+
+.vegeta {
+    position: absolute;
+    width: 145px;
+    height: 132px;
+    top: 235px;
+    right: 170px;
+    background: url(../img/sprite-sheet-goku-1.png) no-repeat;
+    background-size: cover;
+    animation: reaccion 1s steps(5);
+}
+
+.contador-carrito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blanco);
+    color: var(--rojo);
+    font-weight: bold;
+    width: 24px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    right: -2px;
+    top: -2px;
+}
+
+.nav-p {
+    position: static;
+    justify-content: center;
+    background: linear-gradient(
+        0deg,
+        rgba(84, 242, 76, 1) 0%,
+        rgba(18, 18, 255, 1) 30%,
+        rgba(18, 18, 255, 1) 100%
+    );
+}
+.navbar-brand {
+    position: relative;
+}
+
+.logo-p,
+.enlaces-p {
+    margin: 0;
+    font-size: 2.8rem;
+}
+.logo-p {
+    position: absolute;
+    top: -12px;
+}
+.modal-footer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.td-modal {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 2px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--rojo);
+}
+
+.borrar-producto {
+    color: var(--amarillo);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2.8rem;
+}
+
+/* Main Productos */
+
+.img-fluid {
+    height: 25rem;
+}
+.navbar-nav {
+    position: absolute;
+    right: 6rem;
+    bottom: -48px;
+}
+
+.aside {
+    flex: 20%;
+    padding-right: 1rem;
+}
+
+.accordion-button {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.accordion-body ul {
+    text-align: start;
+    list-style: circle;
+}
+.filtros {
+    text-decoration: none;
+    text-align: start;
+}
+
+.ct_item-active {
+    color: orange;
+}
+.hidden {
+    display: none;
+}
+
+.row-productos {
+    flex: 80%;
+}
+
+.navbar-expand-lg {
+    background: url(../img/cielo_dragon_ball.jpg) center;
+    background-size: contain;
+    animation: moverNubes 60s linear infinite;
+}
+
+@keyframes moverNubes {
+    0% {
+        background-position: initial;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+/* --------------------------------------- */
+
+/* Medias Queris */
+@media (width <= 1150px) {
+    .main-productos {
+        padding: 1rem;
+    }
+
+    .contenedor-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        justify-content: center;
+    }
+    .card-index {
+        float: none;
+        width: 98%;
+    }
+    .favorito {
+        height: auto;
+        padding: 0;
+    }
+    .favorito::before {
+        bottom: 38%;
+    }
+
+    .content-fav {
+        width: 80%;
+    }
+    .conteiner-favorito {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .imagen-fav img {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (width <= 1024px) {
+    .abrir-menu,
+    .cerrar-menu {
+        border: 0;
+        font-size: 2.5rem;
+        background-color: transparent;
+        color: var(--amarillo);
+        cursor: pointer;
+    }
+
+    .abrir-menu {
+        display: block;
+        margin-right: 5rem;
+    }
+
+    .logo {
+        margin-left: 4rem;
+    }
+
+    .enlaces {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        background-color: rgba(14, 14, 143, 0.9);
+        padding: 1.3rem 5rem 2rem 5rem;
+        margin: 0;
+        gap: 1rem;
+
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .cerrar-menu {
+        display: block;
+    }
+
+    .enlaces.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    .navbar-nav {
+        position: absolute;
+        right: 6rem;
+        bottom: -45px;
+    }
+}
+
+@media (width <= 992px) {
+    .abrir-menu {
+        visibility: hidden;
+    }
+    .fa-solid {
+        opacity: 0;
+    }
+    .navbar-toggler {
+        margin: 0 auto;
+        background-color: var(--amarillo);
+        color: var(--rojo);
+    }
+    .aside {
+        display: none;
+    }
+}
+
+@media (width <= 480px) {
+    .mensaje p {
+        font-size: 4rem;
+    }
+    .div-pro h1 {
+        font-size: 4rem;
+    }
+    .title {
+        font-size: 4rem;
+    }
+    .imagen-fav {
+        width: 80%;
+    }
+}
+
+@media (width <= 385px) {
+    .favorito::before {
+        bottom: 45%;
+    }
+    .form-control {
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+    .navbar {
+        padding-top: 2rem;
+    }
+    .navbar-toggler {
+        background-color: var(--rojo);
+        color: var(--amarillo);
+        position: absolute;
+        right: 0;
+        top: 5px;
+    }
+
+    .modal {
+        font-size: 1rem;
+    }
+    a#vaciar-carrito.btn.btn-danger {
+        font-size: 1.5rem;
+    }
+    button.btn.btn-secondary {
+        font-size: 1.5rem;
+    }
+    td.td-modal {
+        width: 3rem;
+        height: 3rem;
+    }
+    a.borrar-producto {
+        font-size: 2rem;
+    }
+    table {
+        word-wrap: break-word;
+        table-layout: fixed;
+    }
+    th,
+    td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* white-space: nowrap; */
+    }
+}

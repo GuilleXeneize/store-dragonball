@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Lilita+One&family=Open+Sans:ital@0;1&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Lilita+One&family=Open+Sans:ital@0;1&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            src="https://kit.fontawesome.com/aa8182225c.js"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="icon" href="./img/dragonballicon.ico" />
+        <link rel="preconnect" href="./css/styles.css" />
+        <link rel="stylesheet" href="./css/styles.css" as="styles" />
+
+        <title>Productos Dragon Ball Store</title>
+    </head>
+    <body>
+        <!-- Nav de Boostrap -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="./index.html">
+                    <img
+                        class="logo logo-p"
+                        src="./img/DRAGON-STORE.png"
+                        alt="Logotipo"
+                    />
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <form class="d-flex" role="search">
+                        <input
+                            id="buscador"
+                            class="form-control me-2"
+                            type="search"
+                            placeholder="Que Buscas?"
+                            aria-label="Search"
+                        />
+                        <!-- <button
+                            class="btn btn-outline-success btn-busqueda"
+                            type="submit"
+                        >
+                            Buscar
+                        </button> -->
+                    </form>
+                </div>
+                <!-- Navbar -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <div class="contenedor-goku-carrito">
+                            <img
+                                src="./img/goku-carrito.png"
+                                alt="Goku empujando el carrito"
+                                class="goku-carrito"
+                            />
+                            <!-- Animacion Carrito -->
+                            <!-- <div class="frames-goku goku-carrito"></div> -->
+                            <a class="nav-link nav-link-p" href="#">
+                                <span class="contador-carrito">0</span>
+                                <img
+                                    class="carrito-svg"
+                                    src="./img/carrito-1.svg"
+                                    alt="carrito de Compras"
+                                />
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Modal Carrito -->
+                <div
+                    class="modal fade"
+                    id="modalCarrito"
+                    tabindex="-1"
+                    aria-labelledby="modalCarritoLabel"
+                    aria-hidden="true"
+                >
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalCarritoLabel">
+                                    Carrito de Compras
+                                </h5>
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                ></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Tabla del carrito -->
+                                <table
+                                    id="lista-carrito"
+                                    class="table table-striped"
+                                >
+                                    <thead>
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <!-- Botón para abrir el modal del formulario -->
+                                <button
+                                    type="button"
+                                    class="btn btn-primary btn-compra"
+                                    id="abrirFormulario"
+                                >
+                                    Comprar
+                                </button>
+
+                                <!-- Botón para vaciar el carrito -->
+                                <a
+                                    href="#"
+                                    id="vaciar-carrito"
+                                    class="btn btn-danger"
+                                    >Vaciar Carrito</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Formulario -->
+                <div
+                    class="modal fade segundo-modal"
+                    id="modalFormulario"
+                    tabindex="-1"
+                    aria-labelledby="modalFormularioLabel"
+                    aria-hidden="true"
+                >
+                    <div class="modal-dialog">
+                        <div class="modal-content modal-kame">
+                            <div class="modal-header segundo">
+                                <h1
+                                    class="modal-title fs-5"
+                                    id="modalFormularioLabel"
+                                >
+                                    Llena el Formulario para realizar la compra
+                                </h1>
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                ></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- FORMULARIO -->
+                                <form
+                                    action="https://formspree.io/f/xyzzywkv"
+                                    method="POST"
+                                    id="form"
+                                >
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="nombre"
+                                            name="nombre"
+                                            placeholder="Nombre y Apellido"
+                                        />
+                                        <label for="nombre">Nombre</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="direccion"
+                                            name="direccion"
+                                            placeholder="Dirección"
+                                        />
+                                        <label for="direccion">Direccion</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            type="email"
+                                            class="form-control"
+                                            id="email"
+                                            name="email"
+                                            placeholder="Correo Electrónico"
+                                        />
+                                        <label for="email">Email</label>
+                                    </div>
+                                    <!-- <div class="form-floating com">
+                                        <textarea
+                                            class="form-control"
+                                            placeholder="Comentario extra"
+                                            name="comentario"
+                                            id="comentario"
+                                        ></textarea>
+                                        <label for="comentario"
+                                            >Comentario</label
+                                        >
+                                    </div> -->
+                                    <div class="modal-footer">
+                                        <button
+                                            type="submit"
+                                            class="btn btn-primary btn-compra"
+                                        >
+                                            Enviar
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn btn-secondary"
+                                            data-bs-dismiss="modal"
+                                        >
+                                            Cerrar
+                                        </button>
+                                    </div>
+                                </form>
+                                <!-- Fin formulario -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin modal Formulario -->
+            </div>
+        </nav>
+
+        <div class="nav nav-p">
+            <button class="abrir-menu" title="Abrir">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="enlaces enlaces-p">
+                <button class="cerrar-menu" title="Cerrar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <a class="enlace" href="./index.html">Inicio</a>
+                <a class="enlace" href="./productos.html">Productos</a>
+                <a class="enlace" href="#destacado">Destacado</a>
+                <a class="enlace" href="#reseñas">Reseñas</a>
+                <a class="enlace" href="#contacto">Contacto</a>
+            </div>
+        </div>
+
+        <!-- ------------------------------------ -->
+
+        <!-- PRODUCTOS -->
+        <main class="main-p content-wp">
+            <!-- Section -->
+            <section class="container text-center py-5 d-flex">
+                <!-- ====== -->
+                <!-- ASIDE -->
+
+                <div
+                    class="accordion aside"
+                    id="accordionPanelsStayOpenExample"
+                >
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne"
+                                aria-expanded="true"
+                                aria-controls="panelsStayOpen-collapseOne"
+                            >
+                                Destacados
+                            </button>
+                        </h2>
+                        <div
+                            id="panelsStayOpen-collapseOne"
+                            class="accordion-collapse collapse show"
+                        >
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="all"
+                                            >Todos</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="premium"
+                                            >Productos Premium</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="oferta"
+                                            >Ofertas</a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseTwo"
+                                aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseTwo"
+                            >
+                                Articulos
+                            </button>
+                        </h2>
+                        <div
+                            id="panelsStayOpen-collapseTwo"
+                            class="accordion-collapse collapse"
+                        >
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="figura"
+                                            >Figuras de Acción</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="manga"
+                                            >Manga</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="accesorio"
+                                            >Accesorios</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="ropa"
+                                            >Ropa</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="otros"
+                                            >Otros</a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseThree"
+                                aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseThree"
+                            >
+                                Personajes
+                            </button>
+                        </h2>
+                        <div
+                            id="panelsStayOpen-collapseThree"
+                            class="accordion-collapse collapse"
+                        >
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="goku"
+                                            >Goku</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="gohan"
+                                            >Gohan</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="vegeta"
+                                            >Vegeta</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="crilin"
+                                            >Krilin</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="picolo"
+                                            >Piccolo</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="trunks"
+                                            >Trunks</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="buu"
+                                            >Majin Boo</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="androide"
+                                            >Androides</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="roshi"
+                                            >Maestro Roshi</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="filtros"
+                                            category="broly"
+                                            >Broly</a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Productos -->
+                <div
+                    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-productos flex-grow-1 flex-wrap"
+                >
+                    <!-- card -->
+                    <div class="col card-produc" category="figura">
+                        <div class="card">
+                            <div class="img-main">
+                                <img
+                                    src="./img/majin-boo-flaco.png"
+                                    alt="figura de majin boo flaco"
+                                    class="img-fluid"
+                                />
+                            </div>
+                            <div class="card-body">
+                                <h3 class="nombre-producto">Majin Boo flaco</h3>
+                                <h2 class="precio">US$599.<small>99</small></h2>
+                                <div class="frames-goku vegeta d-none"></div>
+                                <a href="#" class="btn buy" data-id="1"
+                                    >Comprar</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- card -->
+                    <div class="col card-produc" category="ropa">
+                        <div class="card">
+                            <div class="img-main">
+                                <img
+                                    src="./img/campera-dragon-ball.png"
+                                    alt="campera dragon ball"
+                                    class="img-fluid"
+                                />
+                            </div>
+                            <div class="card-body">
+                                <h3 class="nombre-producto">Campera</h3>
+                                <h2 class="precio">US$199.<small>99</small></h2>
+                                <div class="frames-goku vegeta d-none"></div>
+                                <a href="#" class="btn buy" data-id="2"
+                                    >Comprar</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- card -->
+                    <div class="col card-produc" category="otros">
+                        <div class="card">
+                            <div class="img-main">
+                                <img
+                                    src="./img/mate-dragon-ball.png"
+                                    alt="mate dragon ball"
+                                    class="img-fluid"
+                                />
+                            </div>
+                            <div class="card-body">
+                                <h3 class="nombre-producto">Mate Esfera</h3>
+                                <h2 class="precio">US$59.<small>00</small></h2>
+                                <div class="frames-goku vegeta d-none"></div>
+                                <a href="#" class="btn buy" data-id="3"
+                                    >Comprar</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- card -->
+                    <div class="col card-produc" category="figura">
+                        <div class="card">
+                            <div class="img-main">
+                                <img
+                                    src="./img/Dr.Gero-Funko.png"
+                                    alt="Figura del Dr Maki Gero"
+                                    class="img-fluid"
+                                />
+                            </div>
+                            <div class="card-body">
+                                <h3 class="nombre-producto">Dr. Maki Gero</h3>
+                                <h2 class="precio">US$199.<small>99</small></h2>
+                                <div class="frames-goku vegeta d-none"></div>
+                                <a href="#" class="btn buy" data-id="4"
+                                    >Comprar</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- card -->
+                    <div class="col card-produc" category="goku">
+                        <div class="card">
+                            <div class="img-main">
+                                <img
+                                    src="./img/goku-chico.webp"
+                                    alt="Figura del Dr Maki Gero"
+                                    class="img-fluid img-main"
+                                />
+                            </div>
+                            <div class="card-body">
+                                <!-- prettier-ignore -->
+                                <h3 class="nombre-producto">Figura Goku niño</h3>
+                                <h2 class="precio">US$150.<small>00</small></h2>
+                                <div class="frames-goku vegeta d-none"></div>
+                                <a href="#" class="btn buy" data-id="5"
+                                    >Comprar</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- card -->
+                    <div class="col card-produc" category="manga">
+                        <div class="card">
+                            <div class="img-main">
+                                <img
+                                    src="./img/dragon-ball-Manga.jpeg"
+                                    alt="Figura del Dr Maki Gero"
+                                    class="img-fluid img-main"
+                                />
+                            </div>
+                            <div class="card-body">
+                                <!-- prettier-ignore -->
+                                <h3 class="nombre-producto">Manga Saga de Moro</h3>
+                                <h2 class="precio">US$30.<small>00</small></h2>
+                                <div class="frames-goku vegeta d-none"></div>
+                                <a href="#" class="btn buy" data-id="6"
+                                    >Comprar</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <ul class="social-icons">
+                <li class="icon-elem">
+                    <a
+                        href="https://www.instagram.com/"
+                        class="icon"
+                        title="instagram"
+                    >
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="icon-elem">
+                    <a href="https://x.com/" class="icon" title="x">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                </li>
+                <li class="icon-elem">
+                    <a
+                        href="https://www.facebook.com/"
+                        class="icon"
+                        title="facebook"
+                    >
+                        <i class="fa-brands fa-square-facebook"></i>
+                    </a>
+                </li>
+                <li class="icon-elem">
+                    <a
+                        href="https://www.whatsapp.com/?lang=es_LA"
+                        class="icon"
+                        title="whatsapp"
+                    >
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </li>
+                <li class="icon-elem">
+                    <a href="#contacto" class="icon" title="e-mail">
+                        <i class="fa-regular fa-envelope"></i>
+                    </a>
+                </li>
+            </ul>
+            <!-- ul enlaces -->
+            <ul class="menu">
+                <li class="menu-elem">
+                    <a href="./index.html" class="menu-icon">Inicio</a>
+                </li>
+                <li class="menu-elem">
+                    <a href="./productos.html" class="menu-icon">Productos</a>
+                </li>
+                <li class="menu-elem">
+                    <a href="#destacado" class="menu-icon">Destacado</a>
+                </li>
+                <li class="menu-elem">
+                    <a href="#reseñas" class="menu-icon">Reseñas</a>
+                </li>
+                <li class="menu-elem">
+                    <a href="#contacto" class="menu-icon">Contacto</a>
+                </li>
+            </ul>
+            <p class="texto-footer">Página de Practica 2024. Talento Tech</p>
+        </footer>
+
+        <!-- Scripts -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+        ></script>
+        <script src="./js/abirFormulario.js"></script>
+        <script src="./js/modal-carrito.js"></script>
+        <script src="./js/script.js" type="module"></script>
+    </body>
+</html>
